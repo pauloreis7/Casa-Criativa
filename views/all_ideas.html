@@ -1,0 +1,38 @@
+
+{% for idea in ideas %}
+
+<div class="idea">
+
+    <img src="{{idea.image}}" alt="{{idea.title}}" />
+
+    <div id="content">
+
+        <div class="idea_header">
+
+            <h3>{{idea.title}}</h3>
+            
+            <form action="/delete?_method=DELETE" method="post">
+
+                <button type="submit"><i class="material-icons">delete_outline</i></button>
+
+                <input type="hidden" name="id" value="{{ idea.id }}" />
+
+            </form>
+
+        </div>
+
+        <p>{{idea.category}}</p>
+
+        <div class="description">
+
+            {{idea.description}}
+
+        </div>
+
+        <a href="{{idea.link}}" target="_blank">Ir para a Ideia</a>
+
+    </div>
+
+</div>
+
+{% endfor %}
